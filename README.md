@@ -1,4 +1,8 @@
-[TOC]
+* custom gin binding and render
+    * custom binding implements binding interface
+    * custom render implements render interface
+* test ShouldBindWith(obj interface{}, b binding.Binding) and  Render(code int, r render.Render)
+
 # custom gin binding and render
 
 ## custom binding implements binding interface
