@@ -13,7 +13,8 @@ go mod edit --require github.com/dangerous1990/gin-jsoniter@v1.0.0
     type Form struct {
     	Name string `json:"name"`
     }
-    
+    // replace your jsoniter api
+    var jsoniterAPI = jsoniter.Config{}.Froze()    
     c.ShouldBindWith(&form, jsoniterserialize.JsoniterBinding{jsoniterAPI})
 
     c.Render(http.StatusOK, jsoniterserialize.jsoniterRender{jsoniterAPI, map[string]string{"message": "hello " + form.Name}})
