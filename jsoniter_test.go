@@ -22,10 +22,10 @@ func jsoniterTest(c *gin.Context) {
 	if err := c.ShouldBindWith(&form, JsoniterBinding{jsoniterAPI}); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"message": "bad request"})
 	}
-	c.Render(http.StatusOK, jsoniterRender{jsoniterAPI, map[string]string{"message": "hello " + form.Name}})
+	c.Render(http.StatusOK, JsoniterRender{jsoniterAPI, map[string]string{"message": "hello " + form.Name}})
 }
 
-func TestCheckMails(t *testing.T) {
+func TestSerialize(t *testing.T) {
 	router := gin.Default()
 	router.POST("/test", jsoniterTest)
 	req := httptest.NewRequest("POST", "/test", strings.NewReader(`{"name":"world"}`))

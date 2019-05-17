@@ -15,7 +15,7 @@ var (
 )
 
 type JsoniterBinding struct {
-	jsoniterAPI jsoniter.API
+	JsoniterAPI jsoniter.API
 }
 
 func (jsoniterBinding JsoniterBinding) Name() string {
@@ -31,7 +31,7 @@ func (jsoniterBinding JsoniterBinding) BindBody(body []byte, obj interface{}) er
 }
 
 func decodeJSON(jsoniterBinding JsoniterBinding, r io.Reader, obj interface{}) error {
-	decoder := jsoniterBinding.jsoniterAPI.NewDecoder(r)
+	decoder := jsoniterBinding.JsoniterAPI.NewDecoder(r)
 	if binding.EnableDecoderUseNumber {
 		decoder.UseNumber()
 	}

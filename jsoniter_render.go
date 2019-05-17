@@ -9,16 +9,16 @@ import (
 
 var (
 	jsonContentType               = []string{"application/json; charset=utf-8"}
-	_               render.Render = jsoniterRender{}
+	_               render.Render = JsoniterRender{}
 )
 
-type jsoniterRender struct {
-	jsoniterAPI jsoniter.API
+type JsoniterRender struct {
+	JsoniterAPI jsoniter.API
 	Data        interface{}
 }
 
-func (render jsoniterRender) Render(w http.ResponseWriter) error {
-	bytes, err := render.jsoniterAPI.Marshal(render.Data)
+func (render JsoniterRender) Render(w http.ResponseWriter) error {
+	bytes, err := render.JsoniterAPI.Marshal(render.Data)
 	if err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (render jsoniterRender) Render(w http.ResponseWriter) error {
 	return nil
 }
 
-func (render jsoniterRender) WriteContentType(w http.ResponseWriter) {
+func (render JsoniterRender) WriteContentType(w http.ResponseWriter) {
 	writeContentType(w, jsonContentType)
 }
 
