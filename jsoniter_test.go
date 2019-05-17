@@ -1,4 +1,4 @@
-package main
+package jsoniterserialize
 
 import (
 	"net/http"
@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	jsoniter "github.com/json-iterator/go"
-	"github.com/stretchr/testify/assert"
+	"gopkg.in/go-playground/assert.v1"
 )
 
 type Form struct {
